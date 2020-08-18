@@ -1,8 +1,10 @@
 import 'dart:async';
-import 'package:diday/models/country.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'country.dart';
 import 'package:diacritic/diacritic.dart';
+
+export 'country.dart';
 
 const _platform = const MethodChannel('biessek.rocks/flutter_country_picker');
 
