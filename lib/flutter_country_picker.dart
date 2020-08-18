@@ -1,12 +1,11 @@
 import 'dart:async';
+import 'package:diday/models/country.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'country.dart';
 import 'package:diacritic/diacritic.dart';
 
-export 'country.dart';
-
 const _platform = const MethodChannel('biessek.rocks/flutter_country_picker');
+
 Future<List<Country>> _fetchLocalizedCountryNames() async {
   List<Country> renamed = new List();
   Map result;
@@ -33,21 +32,22 @@ Future<List<Country>> _fetchLocalizedCountryNames() async {
 /// The country picker widget exposes an dialog to select a country from a
 /// pre defined list, see [Country.ALL]
 class CountryPicker extends StatelessWidget {
-  const CountryPicker({
-    Key key,
-    this.selectedCountry,
-    @required this.onChanged,
-    this.dense = false,
-    this.showFlag = true,
-    this.showDialingCode = false,
-    this.showName = true,
-    this.showCurrency = false,
-    this.showCurrencyISO = false,
-    this.nameTextStyle,
-    this.dialingCodeTextStyle,
-    this.currencyTextStyle,
-    this.currencyISOTextStyle,
-  }) : super(key: key);
+  const CountryPicker(
+      {Key key,
+      this.selectedCountry,
+      @required this.onChanged,
+      this.dense = false,
+      this.showFlag = true,
+      this.showDialingCode = false,
+      this.showName = true,
+      this.showCurrency = false,
+      this.showCurrencyISO = false,
+      this.nameTextStyle,
+      this.dialingCodeTextStyle,
+      this.currencyTextStyle,
+      this.currencyISOTextStyle,
+      this.isShowDropdownIcon})
+      : super(key: key);
 
   final Country selectedCountry;
   final ValueChanged<Country> onChanged;
@@ -61,6 +61,7 @@ class CountryPicker extends StatelessWidget {
   final TextStyle dialingCodeTextStyle;
   final TextStyle currencyTextStyle;
   final TextStyle currencyISOTextStyle;
+  final bool isShowDropdownIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -115,10 +116,12 @@ class CountryPicker extends StatelessWidget {
               " ${displayCountry.currencyISO}",
               style: currencyISOTextStyle,
             )),
-          Icon(Icons.arrow_drop_down,
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Colors.grey.shade700
-                  : Colors.white70),
+          isShowDropdownIcon
+              ? Icon(Icons.arrow_drop_down,
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? Colors.grey.shade700
+                      : Colors.white70)
+              : Container(),
         ],
       ),
       onTap: () {
@@ -173,8 +176,8 @@ Future<Country> showCountryPicker({
   return await showDialog<Country>(
     context: context,
     builder: (BuildContext context) => _CountryPickerDialog(
-          defaultCountry: defaultCountry,
-        ),
+      defaultCountry: defaultCountry,
+    ),
   );
 }
 
