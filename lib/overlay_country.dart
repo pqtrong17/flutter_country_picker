@@ -4,6 +4,7 @@ import 'package:flutter_country_picker/flutter_country_picker.dart';
 class OverlayCountry {
   static OverlayEntry createOverlayEntry(
       {GlobalKey key,
+      double height,
       LayerLink layerLink,
       TextStyle countryTextStyle,
       TextStyle dialingCodeTextStyle,
@@ -12,7 +13,6 @@ class OverlayCountry {
     var size = renderBox.size;
     var offset = renderBox.localToGlobal(Offset.zero);
     List<Country> _listCountry = Country.ALL;
-    print('${offset.dx} --- ${offset.dy} --- ${size.height}');
     return OverlayEntry(
         builder: (context) => Positioned(
               top: size.height,
@@ -25,8 +25,7 @@ class OverlayCountry {
                   elevation: 4.0,
                   child: Container(
                     width: size.width,
-                    height: 300,
-                    color: Colors.yellow,
+                    height: height ?? 300,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemCount: _listCountry.length,
@@ -52,20 +51,16 @@ class OverlayCountry {
                                       child: RichText(
                                         text: TextSpan(children: <InlineSpan>[
                                           WidgetSpan(
-                                            child: Text(
-                                                _country.name.toUpperCase(),
-                                                style: countryTextStyle
-                                            )
-                                          ),
-                                          WidgetSpan(
-                                            child: Container(
-                                              margin: EdgeInsets.only(left: 8),
                                               child: Text(
-                                                  "+" + _country.dialingCode,
-                                                  style: dialingCodeTextStyle
-                                              ),
-                                            )
-                                          ),
+                                                  _country.name.toUpperCase(),
+                                                  style: countryTextStyle)),
+                                          WidgetSpan(
+                                              child: Container(
+                                            margin: EdgeInsets.only(left: 8),
+                                            child: Text(
+                                                "+" + _country.dialingCode,
+                                                style: dialingCodeTextStyle),
+                                          )),
                                         ]),
                                       ),
                                     ),
