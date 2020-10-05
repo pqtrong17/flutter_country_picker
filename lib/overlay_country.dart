@@ -46,29 +46,27 @@ class OverlayCountry {
                                       fit: BoxFit.fitWidth,
                                     ),
                                   ),
-                                  Flexible(
-                                    child: Container(
-                                      margin: EdgeInsets.only(left: 8),
-                                      child: RichText(
-                                        overflow: TextOverflow.ellipsis,
-                                        text: TextSpan(children: <InlineSpan>[
-                                          WidgetSpan(
-                                              child: Expanded(
-                                                child: Text(
-                                                    _country.name.toUpperCase(),
-                                                    style: countryTextStyle,
-                                                maxLines: 1,),
-                                              )),
-                                          WidgetSpan(
-                                              child: Container(
-                                            margin: EdgeInsets.only(left: 8),
-                                            child: Text(
-                                                "+" + _country.dialingCode,
-                                                style: dialingCodeTextStyle),
-                                          )),
-                                        ]),
-                                      ),
-                                    ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 8),
+                                    child: Row(
+                                      children: [
+                                        Flexible(
+                                          child: Container(
+                                              child: Text(
+                                                _country.name.toUpperCase(),
+                                                overflow: TextOverflow.ellipsis,
+                                                style: countryTextStyle,
+                                                maxLines: 1,)),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 8),
+                                          child: Text(
+                                            "+" + _country.dialingCode,
+                                            style: dialingCodeTextStyle,
+                                          ),
+                                        )
+                                      ],
+                                    ),,
                                   ),
                                 ],
                               ),
