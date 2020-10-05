@@ -16,7 +16,7 @@ class OverlayCountry {
     return OverlayEntry(
         builder: (context) => Positioned(
               top: size.height,
-              width: size.width-40,
+              width: size.width,
               child: CompositedTransformFollower(
                 link: layerLink,
                 showWhenUnlinked: false,
@@ -26,6 +26,7 @@ class OverlayCountry {
                   child: Container(
                     width: size.width,
                     height: 300,
+                    color: Colors.yellow,
                     child: ListView.builder(
                       padding: EdgeInsets.zero,
                       itemCount: _listCountry.length,
