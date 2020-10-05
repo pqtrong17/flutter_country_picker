@@ -198,6 +198,8 @@ class _CountryPickerDialogState extends State<_CountryPickerDialog> {
   String filter;
   List<Country> countries;
 
+
+
   @override
   void initState() {
     super.initState();
@@ -235,15 +237,15 @@ class _CountryPickerDialogState extends State<_CountryPickerDialog> {
                 prefixIcon: Icon(Icons.search),
                 suffixIcon: filter == null || filter == ""
                     ? Container(
-                        height: 0.0,
-                        width: 0.0,
-                      )
+                  height: 0.0,
+                  width: 0.0,
+                )
                     : InkWell(
-                        child: Icon(Icons.clear),
-                        onTap: () {
-                          controller.clear();
-                        },
-                      ),
+                  child: Icon(Icons.clear),
+                  onTap: () {
+                    controller.clear();
+                  },
+                ),
               ),
               controller: controller,
             ),
@@ -296,4 +298,7 @@ class _CountryPickerDialogState extends State<_CountryPickerDialog> {
       ),
     );
   }
+
+
+
 }
