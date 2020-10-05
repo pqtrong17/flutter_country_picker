@@ -10,7 +10,7 @@ class OverlayCountry {
       TextStyle countryTextStyle,
       TextStyle dialingCodeTextStyle,
       ValueChanged<Country> onTapItem,
-      Color border,
+      Color colorBorder,
       double borderRadius}) {
     RenderBox renderBox = key.currentContext.findRenderObject();
     var size = renderBox.size;
@@ -29,7 +29,7 @@ class OverlayCountry {
                     width: size.width,
                     height: height ?? 300,
                     decoration: BoxDecoration(
-                      border: Border.all(color: border ?? Colors.yellow, width: 1),
+                      border: Border.all(color: colorBorder ?? Colors.yellow, width: 1),
                       borderRadius: BorderRadius.circular(borderRadius ?? 4)
                     ),
                     child: ListView.builder(
