@@ -35,7 +35,6 @@ class OverlayCountry {
                         return InkWell(
                             onTap: () => onTapItem(_country),
                             child: Container(
-                              color: Colors.green,
                               padding: EdgeInsets.only(bottom: index == _listCountry.length - 1 ? 0 : 8),
                               child: Row(
                                 children: [
@@ -51,14 +50,14 @@ class OverlayCountry {
                                     child: Container(
                                       margin: EdgeInsets.only(left: 8),
                                       child: RichText(
-                                        maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         text: TextSpan(children: <InlineSpan>[
                                           WidgetSpan(
                                               child: Flexible(
                                                 child: Text(
                                                     _country.name.toUpperCase(),
-                                                    style: countryTextStyle),
+                                                    style: countryTextStyle,
+                                                maxLines: 1,),
                                               )),
                                           WidgetSpan(
                                               child: Container(
