@@ -2,29 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_country_picker/flutter_country_picker.dart';
 
 class OverlayCountry {
-//  void _insertCountryPicker(BuildContext context){
-//    if(_overlayEntry != null){
-//      _overlayEntry = null;
-//    }
-//    _removeCountryPicker();
-//    this._overlayEntry = this._createOverlayEntry();
-//    Overlay.of(context).insert(this._overlayEntry);
-//    _isShowingOverlay = true;
-//  }
-//
-//  void _removeCountryPicker(){
-//    if (_isShowingOverlay) {
-//      this._overlayEntry.remove();
-//      _overlayEntry = null;
-//      _isShowingOverlay = false;
-//    }
-//  }
-
-//  void _onTapItem(Country _country){
-//    _removeCountryPicker();
-//  }
-
-  static OverlayEntry _createOverlayEntry(
+  static OverlayEntry createOverlayEntry(
       {GlobalKey key,
       LayerLink layerLink,
       TextStyle countryTextStyle,
