@@ -35,6 +35,7 @@ class OverlayCountry {
                         return InkWell(
                             onTap: () => onTapItem(_country),
                             child: Container(
+                              color: Colors.green,
                               child: Row(
                                 children: [
                                   Container(
