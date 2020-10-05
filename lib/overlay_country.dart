@@ -15,11 +15,11 @@ class OverlayCountry {
     return OverlayEntry(
         builder: (context) => Positioned(
               top: size.height,
-              width: size.width,
+              width: size.width-40,
               child: CompositedTransformFollower(
                 link: layerLink,
                 showWhenUnlinked: false,
-                offset: Offset(0, 100),
+                offset: Offset(0, size.height),
                 child: Material(
                   elevation: 4.0,
                   child: Container(
