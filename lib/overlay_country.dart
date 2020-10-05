@@ -27,7 +27,7 @@ class OverlayCountry {
                     width: size.width,
                     height: height ?? 300,
                     child: ListView.builder(
-                      padding: EdgeInsets.zero,
+                      padding: EdgeInsets.all(8),
                       itemCount: _listCountry.length,
                       physics: AlwaysScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
@@ -36,6 +36,7 @@ class OverlayCountry {
                             onTap: () => onTapItem(_country),
                             child: Container(
                               color: Colors.green,
+                              padding: EdgeInsets.only(bottom: index == _listCountry.length - 1 ? 0 : 8),
                               child: Row(
                                 children: [
                                   Container(
@@ -50,11 +51,15 @@ class OverlayCountry {
                                     child: Container(
                                       margin: EdgeInsets.only(left: 8),
                                       child: RichText(
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
                                         text: TextSpan(children: <InlineSpan>[
                                           WidgetSpan(
-                                              child: Text(
-                                                  _country.name.toUpperCase(),
-                                                  style: countryTextStyle)),
+                                              child: Flexible(
+                                                child: Text(
+                                                    _country.name.toUpperCase(),
+                                                    style: countryTextStyle),
+                                              )),
                                           WidgetSpan(
                                               child: Container(
                                             margin: EdgeInsets.only(left: 8),
