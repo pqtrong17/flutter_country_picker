@@ -38,6 +38,7 @@ class OverlayCountry {
                                   Container(
                                     child: Image.asset(
                                       _country.asset,
+                                      package: "flutter_country_picker",
                                       height: 24.0,
                                       fit: BoxFit.fitWidth,
                                     ),
