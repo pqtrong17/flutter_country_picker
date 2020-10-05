@@ -20,7 +20,7 @@ class OverlayCountry {
               child: CompositedTransformFollower(
                 link: layerLink,
                 showWhenUnlinked: false,
-                offset: Offset(offset.dx, offset.dy),
+                offset: Offset(offset.dx, size.height),
                 child: Material(
                   elevation: 4.0,
                   child: Container(
