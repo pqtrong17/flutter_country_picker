@@ -53,7 +53,7 @@ class OverlayCountry {
                                         overflow: TextOverflow.ellipsis,
                                         text: TextSpan(children: <InlineSpan>[
                                           WidgetSpan(
-                                              child: Flexible(
+                                              child: Expanded(
                                                 child: Text(
                                                     _country.name.toUpperCase(),
                                                     style: countryTextStyle,
