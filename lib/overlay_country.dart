@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_country_picker/flutter_country_picker.dart';
 
@@ -8,7 +9,9 @@ class OverlayCountry {
       LayerLink layerLink,
       TextStyle countryTextStyle,
       TextStyle dialingCodeTextStyle,
-      ValueChanged<Country> onTapItem}) {
+      ValueChanged<Country> onTapItem,
+      Color border,
+      double borderRadius}) {
     RenderBox renderBox = key.currentContext.findRenderObject();
     var size = renderBox.size;
     var offset = renderBox.localToGlobal(Offset.zero);
@@ -26,6 +29,10 @@ class OverlayCountry {
                   child: Container(
                     width: size.width,
                     height: height ?? 300,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: border ?? Colors.yellow, width: 1),
+                      borderRadius: BorderRadius.circular(borderRadius ?? 4)
+                    ),
                     child: ListView.builder(
                       padding: EdgeInsets.all(8),
                       itemCount: _listCountry.length,
