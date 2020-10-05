@@ -43,19 +43,30 @@ class OverlayCountry {
                                       fit: BoxFit.fitWidth,
                                     ),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 8),
-                                    child: RichText(
-                                      text: TextSpan(children: <TextSpan>[
-                                        TextSpan(
-                                            text: _country.name.toUpperCase(),
-                                            style: countryTextStyle),
-                                        TextSpan(
-                                            text: _country.dialingCode,
-                                            style: dialingCodeTextStyle),
-                                      ]),
+                                  Flexible(
+                                    child: Container(
+                                      margin: EdgeInsets.only(left: 8),
+                                      child: RichText(
+                                        text: TextSpan(children: <InlineSpan>[
+                                          WidgetSpan(
+                                            child: Text(
+                                                _country.name.toUpperCase(),
+                                                style: countryTextStyle
+                                            )
+                                          ),
+                                          WidgetSpan(
+                                            child: Container(
+                                              margin: EdgeInsets.only(left: 8),
+                                              child: Text(
+                                                  "+" + _country.dialingCode,
+                                                  style: dialingCodeTextStyle
+                                              ),
+                                            )
+                                          ),
+                                        ]),
+                                      ),
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                             ));
