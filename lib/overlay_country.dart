@@ -10,6 +10,7 @@ class OverlayCountry {
       ValueChanged<Country> onTapItem}) {
     RenderBox renderBox = key.currentContext.findRenderObject();
     var size = renderBox.size;
+    print('============= ${size.width}');
     List<Country> _listCountry = Country.ALL;
     return OverlayEntry(
         builder: (context) => Positioned(
@@ -18,7 +19,7 @@ class OverlayCountry {
               child: CompositedTransformFollower(
                 link: layerLink,
                 showWhenUnlinked: false,
-                offset: Offset(0, 48),
+                offset: Offset(0, 100),
                 child: Material(
                   elevation: 4.0,
                   child: Container(
